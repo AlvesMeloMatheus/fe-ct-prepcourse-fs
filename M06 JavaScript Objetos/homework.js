@@ -61,48 +61,50 @@ function eliminarPropiedad(objeto, propiedad) {
    // El parámetro "propiedad" es una propiedad del objeto que recibes.
    // Debes eliminarla del objeto y retornarlo finalmente.
    // Tu código:
-   delete objeto[propiedad];
+   delete objeto[propiedad]
    return objeto;
+
 }
 
-function tieneEmail(objetoUsuario) {
+function tieneEmail(objetoUsuario) { // ----- aqui -----
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-   var res;
-   if (objetoUsuario['email']) {
-      res = true;
+   if ( objetoUsuario['email']) {
+      return true;
    } else {
-      res = false;
+      return false;
    }
-   return res;
+
 }
+var obj = {email: null}
+console.log(tieneEmail(obj))
 
 function tienePropiedad(objeto, propiedad) {
    // Verifica si el objeto recibido posee una propiedad con el mismo nombre que el parámetro "propiedad".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-   var res;
    if (objeto[propiedad]) {
-      res = true;
-   } else {      
-      res = false;
+      return true;
+   } else {
+      return false;
    }
-   return res;
 }
+var obj = {propiedad: "asd"}
+console.log(tienePropiedad(obj, "propiedad"))
 
 function verificarPassword(objetoUsuario, password) {
    // Verifica si la propiedad "password" del "objetoUsuario" coincide con el parámetro "password".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-   var res;
-   if (objetoUsuario['password'] === password) {
-      res = true;
+   if( objetoUsuario['password'] === password) {
+      return true;
    } else {
-      res = false;
+      return false;
    }
-   return res;
+
 }
+
 
 function actualizarPassword(objetoUsuario, nuevaPassword) {
    // Reemplaza la contrseña guardada en la propiedad "password" del "objetoUsuario".
@@ -111,7 +113,10 @@ function actualizarPassword(objetoUsuario, nuevaPassword) {
    // Tu código:
    objetoUsuario.password = nuevaPassword;
    return objetoUsuario;
+
 }
+var obj = {password: "asdzxcfgghhhhh...."}
+console.log(actualizarPassword(obj, "asdasd"))
 
 function agregarAmigo(objetoUsuario, nuevoAmigo) {
    // El parámetro "objetoUsuario" tiene una propiedad llamada "amigos" igual a un arreglo.
@@ -120,7 +125,11 @@ function agregarAmigo(objetoUsuario, nuevoAmigo) {
    // Tu código:
    objetoUsuario.amigos.push(nuevoAmigo);
    return objetoUsuario;
+
 }
+var obj = {amigos: []}
+console.log(agregarAmigo(obj, "marcos"))
+console.log(agregarAmigo(obj, "pedro"))
 
 function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // El parámetro "objetoMuchosUsuarios" es un arreglo de objetos (usuarios).
@@ -129,13 +138,10 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Retornar el arreglo.
    // Tu código:
 
-   var res;
-   for( i = 0; i < objetoMuchosUsuarios.length; i++) {
-      res = objetoMuchosUsuarios[i].esPremium = true
-   }
-   return objetoMuchosUsuarios;
 
 }
+// var usuarios = [{esPremium: false}, {esPremium: false}, {esPremium: false}]
+// console.log(pasarUsuarioAPremium(usuarios))
 
 function sumarLikesDeUsuario(objetoUsuario) {
    // El parámetro "objetoUsuario" tiene una propiedad llamada "posts" que es un arreglo.
@@ -144,6 +150,7 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Debes sumar los likes de todos los post y retornar el resultado.
    // Tu código:
    // objetoUsuario.posts = [ Npost.likes = numero ]
+
    var suma = 0;
    for ( var i = 0; i < objetoUsuario.posts.length; i++) {
       suma += objetoUsuario.posts[i].likes;
@@ -164,10 +171,15 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
    // Precio final ---> 8
    // Tu código:
 
-   objetoProducto.calcularPrecioDescuento = function () {
-      return this.precio - (this.precio * this.porcentajeDeDescuento);
+   // objetoProducto.calcularPrecioDescuento = function () {
+   //    return this.precio - (this.precio * this.porcentajeDeDescuento);
+   // }
+   // return  objetoProducto;
+
+   objetoProducto["calcularPrecioDescuento"] = () => {
+      return objetoProducto.precio - objetoProducto.precio * objetoProducto.porcentajeDeDescuento;
    }
-   return  objetoProducto;
+   return objetoProducto
 
 }
 

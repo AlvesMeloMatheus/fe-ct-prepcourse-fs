@@ -197,40 +197,45 @@ function empiezaConNueve(num) { // AQUI
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
-
-   var str = num.toString(); // toString() num -> 20 -> "20"
-   return str[0] === "9"; // true 
-  
+   var str = num.toString(); // otString(12) -> "12"
+   return str[0] === '9'
 }
-[1, 1, 2] // 0, 1 ,2
-console.log(empiezaConNueve(9456222355115545548.2222));
+// [1, 1, 2] // 0, 1 ,2
+console.log(empiezaConNueve(81));
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
-
-   // arrayx = [ 0, "asd"] arrayx.length -> 2  i -> 0, 1
-
-   // arrayx.length 
-   for(var i = 0; i < array.length -1; i++ ) {
-      
-      if( array[i] === array[i +1] ) {
-         return true;
+   for (var i = 0; i < array.length -1; i++) {
+      if(array[i] !== array[i +1]) {
+         return false;
       }
    }
-   return false;
+   return true;
+
 }
-arrayN = [ 1, 2 ,3]
+arrayN = [ 1, 1, 2 ,3] // i -> 0 -> num1 | i+ 1 -> 1 num2
 arrayN2 = [ 1 , 1 ]
-console.log(arrayN.length - 1); // array.length - 1 // cuento por indice (i)
+console.log(todosIguales(arrayN2)); 
 
 function mesesDelAño(array) {
    // El arreglo contiene algunos meses del año desordenados. Debes recorrerlo, buscar los meses "Enero",
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+   var arrayN = [];
+   for( var i =0; i < array.length; i++) { // [ 1, 2 , 3 , 4(abril), ....]
+      if(array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+         arrayN.push(array[i])
+      }
+   }
 
+   if (arrayN.length < 3) {
+      return "No se encontraron los meses pedidos";
+   } else {
+      return arrayN;
+   }
 }
 
 
@@ -238,14 +243,12 @@ function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
-
-   var tablaSeis = [];
-
-   // i menor pues el contage es del i 0 i =9
-   for( var i = 0; i < 11; i++) {
-      tablaSeis[i] = 6 * i // i->0 6*0 = 0
+   var tabla6 = [];
+   for( var i = 0; i < 11; i++) { // 1, 2 -> 10
+      tabla6[i] = 6*i
    }
-   return tablaSeis;
+   return tabla6;
+
 }
 console.log(tablaDelSeis());
 
@@ -253,18 +256,17 @@ function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
-
    var arrayN = [];
-   for( var i = 0; i < array.length; i++) {
-
-      if (array[i] > 100) {
-         arrayN.push(array[i])
+   for (var i = 0; i < array.length; i++) {
+      if ( array[i] > 100) {
+         arrayN.push(array[i]);
       }
    }
-   return arrayN
+   return arrayN;
+
 }
-array = [ 120, 35, 450]
-console.log(mayorACien(array));
+array2 = [ 120, 35, 450]
+console.log(mayorACien(array2));
 
 /* ----------------------------------------------------------------------------------
 💪 EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT  EXTRA CREDIT 💪
@@ -273,55 +275,56 @@ console.log(mayorACien(array));
 function breakStatement(num) {
    // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
    // Guardar cada nuevo valor en un arreglo y retornarlo.
+
    // Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
+
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
-
-   var arrayN = []
+   var arrayN = [];
    var suma = num;
+   for ( var i = 0; i < 10; i++) {
+      suma = suma + 2 // suma += 2
 
-   for (var i = 0; i < 10; i++) {
-
-      suma = suma + 2;
-
-      if (suma === i) break;
-
+      if(suma === i) break; // 
       else {
-         arrayN.push(suma);
+         arrayN.push(suma)
       }
    }
-
-   if ( i < 10) {
-      return "Se interrumpió la ejecución";
-   } else {
+    if ( i < 10) {
+      return "Se interrumpió la ejecución"
+    } else {
       return arrayN;
-   }
+    }
+
 }
-console.log(breakStatement(-1));
-// -2 i-1 = //-2 + 2= 0, 0 + 2// 2 i-2 = 2 
+console.log(breakStatement(-2)); 
+// -2(0) i(0) +2 =0 
 
 function continueStatement(num) {
    // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
    // Guardar cada nuevo valor en un array y retornarlo.
+
    // Cuando el número de iteraciones alcance el valor 5, no se suma ese caso y
    // se continua con la siguiente iteración.
+
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
-   var arrayN = []
+   var arrayN = [];
    var suma = num;
+   for ( var i = 0; i < 10; i++) {
 
-   for (var i = 0; i < 10; i++) {
-      if( i === 5) continue;// salto de la operacion
-      
+      if ( i === 5) continue; // 
       else {
-         suma = suma +2
+         suma += 2
          arrayN.push(suma);
       }
+
    }
    return arrayN;
+
 }
-console.log(continueStatement(0)) // 20 -> 18
+// console.log(continueStatement(0)) // 20 -> 18
 
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/

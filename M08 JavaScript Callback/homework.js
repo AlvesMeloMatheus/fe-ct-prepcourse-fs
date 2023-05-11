@@ -60,10 +60,9 @@ function forEach(array, cb) {
       //elemento => {
       //cb(elemento);
       //}
-    function(elemento,indice){
-      cb(elemento);
-    }
-    
+      function(elemento,indice){
+        cb(elemento);
+      }
     );
 }
 
@@ -102,6 +101,7 @@ function filter(arrayOfStrings) {
      return (elemento[0] === "a" )
    }
  );
+ // mañana a las 19 -> M09
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
