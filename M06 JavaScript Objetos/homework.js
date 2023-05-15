@@ -48,7 +48,7 @@ function invocarMetodo(objeto, metodo) {
    objeto[metodo]();
 }
 
-function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
+function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) { // -5°
    // El parámetro "objetoMisterioso" posee una propiedad con el nombre "numeroMisterioso".
    // Debes multiplicar este número por 5 y retornar el resultado.
    // Tu código:
@@ -66,7 +66,7 @@ function eliminarPropiedad(objeto, propiedad) {
 
 }
 
-function tieneEmail(objetoUsuario) { // ----- aqui -----
+function tieneEmail(objetoUsuario) { 
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
@@ -106,7 +106,7 @@ function verificarPassword(objetoUsuario, password) {
 }
 
 
-function actualizarPassword(objetoUsuario, nuevaPassword) {
+function actualizarPassword(objetoUsuario, nuevaPassword) { // -10°
    // Reemplaza la contrseña guardada en la propiedad "password" del "objetoUsuario".
    // La nueva contraseña la recibes por parámetro.
    // Retornar el objeto.
@@ -115,15 +115,15 @@ function actualizarPassword(objetoUsuario, nuevaPassword) {
    return objetoUsuario;
 
 }
-var obj = {password: "asdzxcfgghhhhh...."}
-console.log(actualizarPassword(obj, "asdasd"))
+// var obj = {password: "asdzxcfgghhhhh...."}
+// console.log(actualizarPassword(obj, "asdasd"))
 
-function agregarAmigo(objetoUsuario, nuevoAmigo) {
+function agregarAmigo(objetoUsuario, nuevoAmigo) { // 11° - aqui
    // El parámetro "objetoUsuario" tiene una propiedad llamada "amigos" igual a un arreglo.
    // Debes agregar el "nuevoAmigo" al final de este arreglo.
    // Retornar el objeto.
    // Tu código:
-   objetoUsuario.amigos.push(nuevoAmigo);
+   objetoUsuario.amigos.push(nuevoAmigo)
    return objetoUsuario;
 
 }
@@ -137,11 +137,15 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Define esta propiedad de todos los usuarios como true.
    // Retornar el arreglo.
    // Tu código:
-
+   for (var i = 0; i < objetoMuchosUsuarios.length; i++) {
+      objetoMuchosUsuarios[i].esPremium = true;
+   }
+   return objetoMuchosUsuarios;
 
 }
-// var usuarios = [{esPremium: false}, {esPremium: false}, {esPremium: false}]
-// console.log(pasarUsuarioAPremium(usuarios))
+var usuarios = [{esPremium: false}, {esPremium: false}, {esPremium: false}]
+console.log(usuarios[0].esPremium);
+console.log(pasarUsuarioAPremium(usuarios))
 
 function sumarLikesDeUsuario(objetoUsuario) {
    // El parámetro "objetoUsuario" tiene una propiedad llamada "posts" que es un arreglo.
@@ -150,18 +154,27 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Debes sumar los likes de todos los post y retornar el resultado.
    // Tu código:
    // objetoUsuario.posts = [ Npost.likes = numero ]
-
-   var suma = 0;
+   var sumar = 0;
    for ( var i = 0; i < objetoUsuario.posts.length; i++) {
-      suma += objetoUsuario.posts[i].likes;
+      sumar += objetoUsuario.posts[i].likes;
    }
-   return suma;
+   return sumar;
 
 }
+var obj ={ posts: [ {id: '1', title: 'Aventuras en JS!', likes: 10,},
+
+                     { id: '2', title: 'Soy Henry!', likes: 100,},
+
+                     {id: '3', title: 'Qué es un JavaScript?', likes: 35,}  
+                  ]
+         }
+console.log(sumarLikesDeUsuario(obj));
 
 function agregarMetodoCalculoDescuento(objetoProducto) {
    // Agrega una propiedad al "objetoProducto" con el nombre "calcularPrecioDescuento".
+
    // Esta propiedad debe ser una función que multiplique el precio del producto por el porcentajeDeDescuento.
+
    // El "objetoProducto" posee una propiedad "precio" y una propiedad "porcentajeDeDescuento".
    // Luego debes restar del precio total del producto ese valor de descuento.
    // Retornar el precio final.
@@ -170,16 +183,10 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
    // PorcentajeDeDescuento ---> 0.2
    // Precio final ---> 8
    // Tu código:
-
-   // objetoProducto.calcularPrecioDescuento = function () {
-   //    return this.precio - (this.precio * this.porcentajeDeDescuento);
-   // }
-   // return  objetoProducto;
-
    objetoProducto["calcularPrecioDescuento"] = () => {
       return objetoProducto.precio - objetoProducto.precio * objetoProducto.porcentajeDeDescuento;
    }
-   return objetoProducto
+   return objetoProducto;
 
 }
 
