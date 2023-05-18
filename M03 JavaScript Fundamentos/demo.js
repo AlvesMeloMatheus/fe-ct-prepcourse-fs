@@ -72,4 +72,31 @@ function ensalada (l, r, c, z) {
     } 
     return resultado;
 }
-console.log(ensalada(l));
+
+
+
+function saludo(juan) {
+    return "Hola a todos, " + juan + "!";
+}
+
+console.log(saludo("pera"));
+
+function soloNumeros(array) {
+ var contenedor = [];
+    for (var i = 0; i < array.length; i++) {
+        
+       
+
+        var elemento = array[i]
+
+        if( elemento % 1 === 0 ) {
+
+            contenedor.push(elemento);
+        }
+    }
+    return contenedor;
+
+}
+
+var asdfg = [12, "henry", 455555, 13];
+console.log(soloNumeros(asdfg));
