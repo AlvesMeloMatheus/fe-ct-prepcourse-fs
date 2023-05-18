@@ -128,13 +128,14 @@ function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
-   var max = arrayOfNums[0];
-   for(var i = 1; i < arrayOfNums.length; i++) {
-      if(arrayOfNums[i] > max) {
-         max = arrayOfNums[i];
-      }
-   }
-   return max;
+   
+   // var max = arrayOfNums[0];
+   // for(var i = 1; i < arrayOfNums.length; i++) {
+   //    if(arrayOfNums[i] > max) {
+   //       max = arrayOfNums[i];
+   //    }
+   // }
+   // return max;
 }
 
 function multiplicarArgumentos() {
